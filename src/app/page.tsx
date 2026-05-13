@@ -34,7 +34,7 @@ export default async function Home() {
         />
       </div>
 
-      {/* Bubble Cursor */}
+      {/* Bubble Effect */}
       <div className="fixed w-96 h-96 bg-cyan-500/10 blur-3xl rounded-full top-20 left-10 animate-pulse" />
 
       <section className="max-w-7xl mx-auto px-6 py-20">
