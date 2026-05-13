@@ -475,7 +475,7 @@ export default function Home() {
             <div className="skills-grid">
               <div className="skill-card reveal" data-c="blue">
                 <div className="skill-title">💻 Languages</div>
-                <div className="tags">{['Python','SQL','PySpark','Bash'].map(t=><span className="tag" key={t}>{t}</span>)}</div>
+                <div className="tags">{['Python','SQL','PySpark'].map(t=><span className="tag" key={t}>{t}</span>)}</div>
               </div>
               <div className="skill-card reveal" data-c="purple">
                 <div className="skill-title">⚙️ Data Engineering</div>
@@ -483,11 +483,11 @@ export default function Home() {
               </div>
               <div className="skill-card reveal" data-c="cyan">
                 <div className="skill-title">☁️ Cloud &amp; DevOps</div>
-                <div className="tags">{['AWS S3','AWS Glue','AWS Lambda','GitHub','VS Code','Docker'].map(t=><span className="tag" key={t}>{t}</span>)}</div>
+                <div className="tags">{['AWS S3','AWS Lambda','GitHub','VS Code'].map(t=><span className="tag" key={t}>{t}</span>)}</div>
               </div>
               <div className="skill-card reveal" data-c="green">
                 <div className="skill-title">📊 Analytics &amp; BI</div>
-                <div className="tags">{['Power BI','Data Modeling','Data Warehousing','Pandas','NumPy'].map(t=><span className="tag" key={t}>{t}</span>)}</div>
+                <div className="tags">{['Power BI','Data Warehousing','Pandas','NumPy'].map(t=><span className="tag" key={t}>{t}</span>)}</div>
               </div>
             </div>
           </div>
