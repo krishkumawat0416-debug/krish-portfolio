@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface Repo {
   id: number
@@ -97,23 +97,24 @@ function ContactForm() {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.MouseEvent) => {
+const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
     if (!form.name || !form.email || !form.message) return
     setStatus('sending')
 
-    // Direct mailto link — opens email client with pre-filled content
-    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`)
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
-    )
-    window.location.href = `mailto:krishkumawat0416@gmail.com?subject=${subject}&body=${body}`
+    await fetch('https://formspree.io/f/mvzleerd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      }),
+    })
 
-    setTimeout(() => {
-      setStatus('sent')
-      setForm({ name: '', email: '', message: '' })
-      setTimeout(() => setStatus('idle'), 4000)
-    }, 800)
+    setStatus('sent')
+    setForm({ name: '', email: '', message: '' })
+    setTimeout(() => setStatus('idle'), 4000)
   }
 
   return (
@@ -165,7 +166,7 @@ function ContactForm() {
           disabled={status === 'sending'}
         >
           {status === 'idle' && '📨 Send Message'}
-          {status === 'sending' && 'Opening Email...'}
+          {status === 'sending' && 'Sending...'}
           {status === 'sent' && '✅ Message Sent!'}
         </button>
       </div>
@@ -187,9 +188,13 @@ export default function Home() {
       try {
         const res = await fetch(
           'https://api.github.com/users/krishkumawat0416-debug/repos?sort=updated&per_page=20',
-          { signal: controller.signal }
+          { signal: controller.signal, headers: { 'Accept': 'application/vnd.github.v3+json' } }
         )
-        if (!res.ok) throw new Error('API error')
+        if (!res.ok) {
+          setRepoError(true)
+          setLoading(false)
+          return
+        }
         const data = await res.json()
         if (!cancelled && Array.isArray(data)) {
           setRepos(data)
@@ -253,7 +258,7 @@ export default function Home() {
             linear-gradient(90deg,rgba(56,189,248,0.025) 1px,transparent 1px);
           background-size:64px 64px;
         }
-        .blob { position:fixed; border-radius:50%; filter:blur(110px); pointer-events:none; z-index:0; opacity:0.10; animation:blobF 14s ease-in-out infinite alternate; }
+        .blob {position:absolute; border-radius:50%; filter:blur(110px); pointer-events:none; z-index:0; opacity:0.10; animation:blobF 14s ease-in-out infinite alternate; }
         .blob1{width:520px;height:520px;background:#1e3a8a;top:-150px;left:-150px;animation-delay:0s;}
         .blob2{width:440px;height:440px;background:#3b0764;bottom:-120px;right:-120px;animation-delay:-6s;}
         .blob3{width:320px;height:320px;background:#0c4a6e;top:45%;left:48%;animation-delay:-10s;}
