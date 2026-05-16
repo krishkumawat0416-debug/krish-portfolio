@@ -682,7 +682,7 @@ export default function Home() {
                          import Image from 'next/image'
                          <Image src="/krish.jpg" alt="Krish Kumawat" width={175} height={175} style={{borderRadius:'50%',objectFit:'cover',objectPosition:'center top'}} />
                     */}
-                    <img src="/krish.jpg" alt="Krish Kumawat" />
+                    <img src="/krish.png" alt="Krish Kumawat" />
                   </div>
                 </div>
                 <div className="avail-badge"><span className="avail-dot" />Open to Work · Data Engineering</div>
