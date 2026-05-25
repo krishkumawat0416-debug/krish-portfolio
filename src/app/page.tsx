@@ -494,7 +494,7 @@ export default function Home() {
 
       {/* Nav */}
       <nav className="nav">
-        <div className="nav-logo">KK</div>
+        <div className="nav-logo">{'<Krish />'}</div>
         <div className="nav-links">
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
