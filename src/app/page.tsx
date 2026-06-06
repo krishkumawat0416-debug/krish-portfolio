@@ -155,6 +155,14 @@ const PROJECTS = [
     color: 'green',
     link: 'https://github.com/krishkumawat0416-debug/Online-Food-Management',
   },
+  {
+  title: 'GlobalMart Retail Data Platform',
+  desc: 'End-to-end data engineering pipeline — Python automation syncs files from Google Drive + FTP to AWS S3 every 5 minutes, Snowpipe auto-ingests 225,000+ rows, Medallion Architecture transforms data through Bronze → Silver → Gold layers, and Power BI dashboards connect live to Snowflake.',
+  tech: ['Python', 'Snowflake', 'AWS S3', 'EC2', 'DynamoDB', 'Snowpipe', 'Power BI'],
+  icon: '🛒',
+  color: 'purple',
+  link: 'https://github.com/krishkumawat0416-debug/globalmart-retail-ingestion-platform',
+  },
 ]
 
 const EDUCATION = [
