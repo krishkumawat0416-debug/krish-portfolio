@@ -553,9 +553,9 @@ export default function Home() {
             {/*
               ✅ RESUME LINK — 2 options:
               Option A (Google Drive): Upload PDF to Drive → Share → Anyone with link → paste that URL below
-              Option B (Local file):   Put krish-resume.pdf in your /public folder → href="/krish-resume.pdf"
+              Option B (Local file):   Put Krish_Kumawat_Resume.pdf in your /public folder → href="/Krish_Kumawat_Resume.pdf"
             */}
-            <a href="/krish-resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-resume">📄 Download Resume</a>
+            <a href="/Krish_Kumawat_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-resume">📄 Download Resume</a>
             <a href="https://github.com/krishkumawat0416-debug" target="_blank" rel="noopener noreferrer" className="btn-outline">GitHub Profile ↗</a>
           </div>
           <div className="live-line-wrap"><div className="live-line" /></div>
